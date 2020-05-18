@@ -20,14 +20,14 @@ def get_data():
         endTime = ts_trans(o['endTime'])
         print(','.join([ddosType, destIp, srcIp, startTime, endTime]))
 
-        event_log = EventLog()
-        event_log.ddostype = ddosType
-        event_log.destIp = destIp
-        event_log.srcIp = srcIp
-        event_log.startTime = startTime
-        event_log.endTime = endTime
-        event_log.ts = datetime.datetime.now()
-        db.session.add(event_log)
+        attack_log = AttackLog()
+        attack_log.ddostype = ddosType
+        attack_log.destIp = destIp
+        attack_log.srcIp = srcIp
+        attack_log.startTime = startTime
+        attack_log.endTime = endTime
+        attack_log.ts = datetime.datetime.now()
+        db.session.add(attack_log)
         db.session.commit()
     return ''
 
