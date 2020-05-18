@@ -41,6 +41,7 @@ def get_data2():
         serverIp = o['serverIp']
         serverDomain = o['serverDomain']
 
+
         phishing_log = PhishingLog()
         phishing_log.clientIp = clientIp
         phishing_log.clientPort = clientPort
