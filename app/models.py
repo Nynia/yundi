@@ -22,8 +22,8 @@ class LowValueWhiteUser(db.Model):
         return '<Phonenum %r>' % self.name
 
 
-class EventLog(db.Model):
-    __tablename__ = 'event_log'
+class AttackLog(db.Model):
+    __tablename__ = 'attack_log'
     id = db.Column(db.Integer, primary_key=True)
     ddostype = db.Column(db.String(30))
     destIp = db.Column(db.String(30))
@@ -44,3 +44,27 @@ class EventLog(db.Model):
 
     def __repr__(self):
         return '<DDosType %s, src: %s, dst: %s>' % self.ddostype, self.srcIp, self.destIp
+
+
+class PhishingLog(db.Model):
+    __tablename__ = 'phishing_log'
+    id = db.Column(db.Integer, primary_key=True)
+    clientIp = db.Column(db.String(30))
+    clientPort = db.Column(db.Integer)
+    requestTime = db.Column(db.String(30))
+    serverIp = db.Column(db.String(30))
+    serverDomain = db.Column(db.String(50))
+    ts = db.Column(db.String(30))
+    def to_json(self):
+        json_post = {
+            'clientIp': self.clientIp,
+            'clientPort': self.clientPort,
+            'serverIp': self.serverIp,
+            'serverDomain': self.serverDomain,
+            'requestTime': self.requestTime,
+            'ts': self.dateTime
+        }
+        return json_post
+
+    def __repr__(self):
+        return '<phishing :%s>' % self.ts
