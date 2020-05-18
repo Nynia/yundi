@@ -38,8 +38,8 @@ def get_data2():
         clientIp = o['clientIp']
         clientPort = o['clientPort']
         requestTime = o['requestTime']
-        serverIp = ts_trans(o['serverIp'])
-        serverDomain = ts_trans(o['serverDomain'])
+        serverIp = o['serverIp']
+        serverDomain = o['serverDomain']
 
         phishing_log = PhishingLog()
         phishing_log.clientIp = clientIp
