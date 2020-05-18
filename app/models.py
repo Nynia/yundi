@@ -45,7 +45,6 @@ class AttackLog(db.Model):
     def __repr__(self):
         return '<DDosType %s, src: %s, dst: %s>' % self.ddostype, self.srcIp, self.destIp
 
-
 class PhishingLog(db.Model):
     __tablename__ = 'phishing_log'
     id = db.Column(db.Integer, primary_key=True)
